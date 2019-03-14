@@ -5,9 +5,16 @@
         <div class="w-1/4">
           <div class="p-6 bg-g-grey-dark rounded-br-none rounded-lg shadow-lg">
             <avatar :options="options[sex]" :config="config[sex]" class="rounded-full bg-g-grey-light"></avatar>
-            <a @click.prevent="test"
+            <a @click.prevent="randomize(sex)"
                class="bg-g-orange hover:bg-g-orange-dark hover:shadow-lg p-4 rounded block text-center font-bold no-underline text-grey-lightest uppercase text-sm mt-6"
                href="">Random</a>
+          </div>
+
+          <div class="mt-6 p-6 bg-g-grey-dark rounded-br-none rounded-lg shadow-lg text-grey">
+            <strong>Image URL</strong><br>
+            <textarea onclick="this.focus();this.select()" readonly="readonly" class="p-2 text-grey rounded bg-g-grey text-sm whitespace-pre-line break-words w-full mt-2 font-mono outline-none" rows="5" style="resize: none;">
+https://img.avatio.cool/avatar.svg{{imgPath}}
+            </textarea>
           </div>
 
           <div class="p-6 text-grey-dark text-sm leading-loose text-right">
@@ -32,6 +39,11 @@
   import Avatar from 'avatio-avatar/src/Avatar.vue';
   import config from 'avatio-avatar/src/avatio';
   import Selector from "./components/Selector.vue";
+  import createHistory from 'history/createBrowserHistory'
+
+  const qs = require('qs');
+  const history = createHistory();
+
   import _ from 'lodash';
 
   const sexes = ['Male', 'Female'];
@@ -47,12 +59,79 @@
       };
     },
     created() {
-      this.options = this.initOptions();
+      // 1. parse from URI
+      this.randomize();
+      this.loadState();
+
+
+      history.listen((location, action) => {
+        if (action === 'POP') {
+          if (!_.eq(this.currentState, this.stateFromUrl())) {
+            this.loadState();
+          }
+        }
+      })
+
     },
+
+    watch: {
+      currentState() {
+        this.storeState();
+      }
+    },
+
+    computed: {
+      currentState() {
+        return {
+          sex: this.sex,
+          options: this.options
+        };
+      },
+      currentStateString() {
+        return "?" + qs.stringify(this.currentState);
+      },
+      imgPath() {
+        return "?" + qs.stringify({
+          sex: this.sex,
+          options: this.options[this.sex]
+        });
+      }
+    },
+
     methods: {
-      test() {
+      loadState() {
+        this.sex = this.stateFromUrl()['sex'] || 'Female';
+        this.options = _.merge(this.options, this.stateFromUrl()['options'] || {});
+      },
+
+      storeState() {
+        if (!_.eq(this.currentState, this.stateFromUrl())) {
+          history.push(this.currentStateString)
+        }
+      },
+
+      stateFromUrl() {
+        return qs.parse(window.location.search.replace(/^\?/, ''));
+      },
+
+      randomize(sex = null) {
+        if (sex) {
+          const res = _.cloneDeep(this.options);
+          res[sex] = this.random(sex);
+          this.options = res;
+        } else {
+          sexes.forEach((sex) => {
+            const res = _.cloneDeep(this.options);
+            res[sex] = this.random(sex);
+            this.options = res;
+          })
+        }
+
+      },
+
+      random(sex) {
         const res = {};
-        config[this.sex].variants.forEach((variant) => {
+        config[sex].variants.forEach((variant) => {
           if (!res[variant.component]) {
             res[variant.component] = {};
           }
@@ -61,29 +140,7 @@
             ].value;
         });
 
-
-        const test = _.cloneDeep(this.options);
-        test[this.sex] = res;
-        this.options = test;
-      },
-
-      initOptions() {
-        const result = {};
-        sexes.forEach((sex) => {
-          const res = result[sex] = {};
-          config[sex].variants.forEach((variant) => {
-            if (!res[variant.component]) {
-              res[variant.component] = {};
-            }
-            if (this.options[variant.component] && this.options[component][variant.prop]) {
-              res[variant.component][variant.prop] = this.options[component][variant.prop];
-            } else {
-              res[variant.component][variant.prop] = variant.values[Math.floor(Math.random() * variant.values.length)].value;
-            }
-          });
-        });
-
-        return result;
+        return res;
       },
     },
   };
