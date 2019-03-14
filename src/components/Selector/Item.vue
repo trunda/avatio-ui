@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import Avatar from 'avatio-avatar';
+  import Avatar from 'avatio-avatar/src/Avatar.vue';
 
   export default {
     components: {Avatar},

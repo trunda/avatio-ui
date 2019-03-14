@@ -1,11 +1,11 @@
 <template>
   <div class="h-full">
     <tabs>
-      <tab name="Pohlaví" :selected="true">
+      <tab name="Gender" :selected="true">
         <div class="mb-4 p-6 bg-g-grey-light rounded-lg w-full">
           <strong class="text-grey-darker flex items-center mb-4">
             <i class="inline-block bg-g-orange w-3 h-3 mr-2 relative rounded-full" style="top: -1px"></i>
-            Pohlaví
+            Gender
           </strong>
           <div class="flex flex-wrap -mx-1">
               <item @selected="$emit('sexChanged', s)" class="w-1/8 px-1 mb-2" v-for="(c, s) in config" :name="c.label" :config="config" :options="value" :sex="s" :selected="s === sex"></item>

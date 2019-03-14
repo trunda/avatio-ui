@@ -7,10 +7,17 @@
             <avatar :options="options[sex]" :config="config[sex]" class="rounded-full bg-g-grey-light"></avatar>
             <a @click.prevent="test"
                class="bg-g-orange hover:bg-g-orange-dark hover:shadow-lg p-4 rounded block text-center font-bold no-underline text-grey-lightest uppercase text-sm mt-6"
-               href="">Náhodně zamíchat</a>
+               href="">Random</a>
           </div>
+
+          <div class="p-6 text-grey-dark text-sm leading-loose text-right">
+            Desgined by <a class="text-grey-dark font-bold no-underline" href="https://graphicriver.net/user/teneresa">Teneresa 🎨️</a><br>
+            Developed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda">Jakub Truneček ❤️</a><br>
+            <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda/avatio-avatar">GitHub️</a>
+          </div>
+
         </div>
-        <div class="w-3/4 rounded-lg rounded-tl-none shadow-lg bg-white"
+        <div class="w-3/4 rounded-lg rounded-tl-none shadow-lg bg-white "
              style="transform: translateY(40px); height: calc(100vh - 4rem - 80px);">
           <selector @sexChanged="(sex) => this.sex = sex" :sex="sex" v-model="options" :config="config"></selector>
         </div>
@@ -22,7 +29,8 @@
 
 <script>
 
-  import Avatar, {Config as config} from 'avatio-avatar';
+  import Avatar from 'avatio-avatar/src/Avatar.vue';
+  import config from 'avatio-avatar/src/avatio';
   import Selector from "./components/Selector.vue";
   import _ from 'lodash';
 
