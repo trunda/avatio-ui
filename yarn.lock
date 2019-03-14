@@ -1357,9 +1357,9 @@ autoprefixer@^9.4.5, autoprefixer@^9.4.8:
     postcss-value-parser "^3.3.1"
 
 avatio-avatar@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/avatio-avatar/-/avatio-avatar-1.0.3.tgz#b545ed82db683e005bd591bf228d69715051e450"
-  integrity sha512-uyjai8a9MBGfDhwD3CKN4JGbxnL1v98Da1eVEAoFkV9XTFaiNhNv2gT6X4X6Xj795sOp0Zcv4Q9PT/U2VKLa1A==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/avatio-avatar/-/avatio-avatar-1.0.4.tgz#0055990102584b7738b114738ae3ec3863bf7118"
+  integrity sha512-kLEL1p1w9nk+eMMnOtvt7K7SkiA/dUucQXFkmgMuJoIVcgb8rUN9h8cfFc/szNhAse5oBCl+B3cMKwjdYOqfag==
   dependencies:
     "@babel/core" "^7.3.4"
     "@babel/preset-env" "^7.3.4"
