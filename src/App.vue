@@ -18,7 +18,7 @@ https://img.avatio.cool/avatar.svg{{imgPath}}
           </div>
 
           <div class="p-6 text-grey-dark text-sm leading-loose text-right">
-            Desgined by <a class="text-grey-dark font-bold no-underline" href="https://graphicriver.net/user/teneresa">Teneresa 🎨️</a><br>
+            Designed by <a class="text-grey-dark font-bold no-underline" href="https://graphicriver.net/user/teneresa">Teneresa 🎨️</a><br>
             Developed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda">Jakub Truneček ❤️</a><br>
             <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda/avatio-avatar">GitHub️</a>
           </div>
