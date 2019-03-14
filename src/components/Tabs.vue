@@ -3,9 +3,9 @@
     <div class="p-6 pb-0">
       <h2 class="text-center mb-6 font-semibold text-grey-darkest uppercase text-base">Features</h2>
       <ul class="list-reset flex uppercase font-normal text-grey-dark text-sm justify-between">
-        <li class="mr-1" v-for="(tab, index) in tabs" :key="index">
+        <li class="mr-1 flex-shrink truncate" v-for="(tab, index) in tabs" :key="index">
           <a @click="selectTab(tab)"
-             class="cursor-pointer inline-block p-4 hover:text-blue-darker"
+             class="truncate cursor-pointer inline-block p-4 hover:text-blue-darker"
              :class="tab.isActive ? ['border-b-4', 'border-orange', 'text-orange'] : []">
             <span>{{ tab.name }}</span>
             <span class="tag" v-if="tab.tags.length > 0" v-for="(tag, index) in tab.tags" :key="index"

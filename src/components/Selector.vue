@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <div class="lg:h-full">
     <tabs>
       <tab name="Gender" :selected="true">
         <div class="mb-4 p-6 bg-g-grey-light rounded-lg w-full">
@@ -8,7 +8,7 @@
             Gender
           </strong>
           <div class="flex flex-wrap -mx-1">
-              <item @selected="$emit('sexChanged', s)" class="w-1/8 px-1 mb-2" v-for="(c, s) in config" :name="c.label" :config="config" :options="value" :sex="s" :selected="s === sex"></item>
+              <item @selected="$emit('sexChanged', s)" class="w-1/3 md:w-1/4 lg:w-1/8 px-1 mb-2" v-for="(c, s) in config" :name="c.label" :config="config" :options="value" :sex="s" :selected="s === sex"></item>
           </div>
         </div>
       </tab>
@@ -19,7 +19,7 @@
             {{ variant.label }}
           </strong>
           <div class="flex flex-wrap -mx-1">
-            <item-variant v-for="item in variant.values" class="w-1/8 px-1 mb-2" :variant="variant" :sex="sex" :item="item" :value="value" @input="change" :config="config"></item-variant>
+            <item-variant v-for="item in variant.values" class="w-1/3 md:w-1/4 lg:w-1/8 px-1 mb-2" :variant="variant" :sex="sex" :item="item" :value="value" @input="change" :config="config"></item-variant>
           </div>
         </div>
       </tab>

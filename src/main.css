@@ -7,3 +7,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+@media (min-width: 992px) {
+    .offsetted {
+        transform: translateY(40px);
+        height: calc(100vh - 4rem - 80px);
+    }
+}

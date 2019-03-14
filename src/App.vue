@@ -1,16 +1,16 @@
 <template>
-  <div id="app" class="py-16 h-full bg-grey-light flex">
+  <div id="app" class="py-16 pt-20 lg:pt-16 lg:h-full bg-grey-light flex">
     <div class="container mx-auto">
-      <div class="flex flex-1">
-        <div class="w-1/4">
-          <div class="p-6 bg-g-grey-dark rounded-br-none rounded-lg shadow-lg">
-            <avatar :options="options[sex]" :config="config[sex]" class="rounded-full bg-g-grey-light"></avatar>
+      <div class="flex flex-wrap flex-1">
+        <div class="w-full lg:w-1/4">
+          <div class="p-6 bg-g-grey-dark rounded-b-none lg:rounded-bl-lg rounded-lg shadow-lg flex flex-col">
+            <avatar :options="options[sex]" :config="config[sex]" class="w-1/3 lg:w-full rounded-full bg-g-grey-light self-center"></avatar>
             <a @click.prevent="randomize(sex)"
                class="bg-g-orange hover:bg-g-orange-dark hover:shadow-lg p-4 rounded block text-center font-bold no-underline text-grey-lightest uppercase text-sm mt-6"
                href="">Random</a>
           </div>
 
-          <div class="mt-6 p-6 bg-g-grey-dark rounded-br-none rounded-lg shadow-lg text-grey">
+          <div class="hidden lg:block mt-6 p-6 bg-g-grey-dark lg:rounded-r-none rounded-lg shadow-lg text-grey">
             <strong>Image URL (SVG)</strong><br>
             <textarea onclick="this.focus();this.select()" readonly="readonly" class="p-2 text-grey rounded bg-g-grey text-sm whitespace-pre-line break-words w-full my-2 font-mono outline-none" rows="5" style="resize: none;">
 https://img.avatio.cool/avatar.svg{{imgPath}}
@@ -21,15 +21,20 @@ https://img.avatio.cool/avatar.png{{imgPath}}
             </textarea>
           </div>
 
-          <div class="p-6 text-grey-dark text-sm leading-loose text-right">
-            Designed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/teneresa">Teneresa 🎨️</a><br>
-            Developed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda">Jakub Truneček ❤️</a><br>
-            <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda/avatio-avatar">GitHub️</a>
+          <div class="p-6 text-grey-dark text-sm leading-loose text-right flex justify-between lg:flex-col absolute container pin-t lg:static ">
+            <p>
+              Designed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/teneresa">Teneresa 🎨️</a>
+            </p>
+            <p>
+              Developed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda">Jakub Truneček ❤️</a>
+            </p>
+            <p>
+              <a class="text-grey-dark font-bold no-underline" href="https://github.com/trunda/avatio-avatar">GitHub️</a>
+            </p>
           </div>
 
         </div>
-        <div class="w-3/4 rounded-lg rounded-tl-none shadow-lg bg-white "
-             style="transform: translateY(40px); height: calc(100vh - 4rem - 80px);">
+        <div class="w-full lg:w-3/4 rounded-lg rounded-t-none lg:rounded-tl-none shadow-lg bg-white offsetted">
           <selector @sexChanged="(sex) => this.sex = sex" :sex="sex" v-model="options" :config="config"></selector>
         </div>
 
