@@ -11,9 +11,13 @@
           </div>
 
           <div class="mt-6 p-6 bg-g-grey-dark rounded-br-none rounded-lg shadow-lg text-grey">
-            <strong>Image URL</strong><br>
-            <textarea onclick="this.focus();this.select()" readonly="readonly" class="p-2 text-grey rounded bg-g-grey text-sm whitespace-pre-line break-words w-full mt-2 font-mono outline-none" rows="5" style="resize: none;">
+            <strong>Image URL (SVG)</strong><br>
+            <textarea onclick="this.focus();this.select()" readonly="readonly" class="p-2 text-grey rounded bg-g-grey text-sm whitespace-pre-line break-words w-full my-2 font-mono outline-none" rows="5" style="resize: none;">
 https://img.avatio.cool/avatar.svg{{imgPath}}
+            </textarea>
+            <strong>Image URL (PNG)</strong><br>
+            <textarea onclick="this.focus();this.select()" readonly="readonly" class="p-2 text-grey rounded bg-g-grey text-sm whitespace-pre-line break-words w-full mt-2 font-mono outline-none" rows="5" style="resize: none;">
+https://img.avatio.cool/avatar.png{{imgPath}}
             </textarea>
           </div>
 
