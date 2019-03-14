@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="py-16 pt-20 lg:pt-16 lg:h-full bg-grey-light flex">
+  <div id="app" class="py-16 px-4 lg:px-0 lg:h-full bg-grey-light flex">
     <div class="container mx-auto">
       <div class="flex flex-wrap flex-1">
         <div class="w-full lg:w-1/4">
@@ -21,7 +21,7 @@ https://img.avatio.cool/avatar.png{{imgPath}}
             </textarea>
           </div>
 
-          <div class="p-6 text-grey-dark text-sm leading-loose text-right flex justify-between lg:flex-col absolute container pin-t lg:static ">
+          <div class="hidden lg:block p-6 text-grey-dark text-sm leading-loose text-right flex justify-between flex-col container pin-t">
             <p>
               Designed by <a class="text-grey-dark font-bold no-underline" href="https://github.com/teneresa">Teneresa 🎨️</a>
             </p>
