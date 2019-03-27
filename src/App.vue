@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="py-16 px-4 lg:px-0 lg:h-full bg-grey-light flex">
     <div class="container mx-auto">
-      <div class="flex flex-wrap flex-1">
+      <div class="flex flex-wrap flex-1 relative">
         <div class="w-full lg:w-1/4">
           <div class="p-6 bg-g-grey-dark rounded-b-none lg:rounded-bl-lg rounded-lg shadow-lg flex flex-col">
             <avatar :options="options[sex]" :config="config[sex]" class="w-1/3 lg:w-full rounded-full bg-g-grey-light self-center"></avatar>
@@ -33,6 +33,11 @@ https://img.avatio.cool/avatar.png{{imgPath}}
             </p>
           </div>
 
+        </div>
+        <div class="pin-r absolute">
+          <a class="github-button" href="https://github.com/trunda/avatio-avatar" data-size="large" data-show-count="false"  data-icon="octicon-star" aria-label="Star trunda/avatio-avatar on GitHub">Star</a>
+          <a class="github-button" href="https://github.com/trunda" data-size="large" data-show-count="false"  data-icon="octicon-eye" aria-label="Follow @trunda on GitHub">Follow @trunda</a>
+          <a class="github-button" href="https://github.com/trunda/avatio-avatar/issues" data-size="large" data-show-count="false" data-icon="octicon-issue-opened" aria-label="Issue trunda/avatio-avatar on GitHub">Issue</a>
         </div>
         <div class="w-full lg:w-3/4 rounded-lg rounded-t-none lg:rounded-tl-none shadow-lg bg-white offsetted">
           <selector @sexChanged="(sex) => this.sex = sex" :sex="sex" v-model="options" :config="config"></selector>
